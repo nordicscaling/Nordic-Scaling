@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Nordic Scaling bygger moderna, konverterande hemsidor för småföretag. Snabb leverans, professionell design, startpris från 5 000 kr.">
 <title>Nordic Scaling – Hemsidor som ger dig fler kunder</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18144251892"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18144251892');
+</script>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23090909'/%3E%3Cpolygon points='7,6 7,26 11,26 11,13 21,26 25,26 25,6 21,6 21,19 11,6' fill='%23c9a84c'/%3E%3Cpolygon points='11,6 11,13 15,19 15,6' fill='%23090909'/%3E%3Cpolygon points='21,26 21,19 17,13 17,26' fill='%23090909'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -69,11 +78,11 @@
   hr.divider{border:none;border-top:1px solid var(--border);max-width:1060px;margin:0 auto}
 
   /* CARDS */
-  .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1px;margin-top:3rem;background:var(--border)}
+  .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1px;margin-top:3rem;background:var(--border);overflow:visible}
   .grid-3 .card{background:var(--card)}
-  .grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1px;margin-top:3rem;background:var(--border)}
+  .grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1px;margin-top:3rem;background:var(--border);overflow:visible}
   .grid-2 .card{background:var(--card)}
-  .card{padding:2rem;transition:background 0.2s}
+  .card{padding:2rem;transition:background 0.2s,transform 0.15s ease,box-shadow 0.25s}
   .card:hover{background:var(--card2)}
   .card-icon{width:44px;height:44px;border-radius:4px;border:1px solid var(--border2);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;font-size:1.3rem;background:var(--card2)}
   .card-line{width:32px;height:2px;background:var(--gold);margin-bottom:1.25rem;opacity:0.7}
@@ -82,7 +91,7 @@
   .problem-card{border-top:2px solid rgba(201,168,76,0.3)}
 
   /* PROCESS */
-  .process-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:3.5rem;background:var(--border)}
+  .process-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:3.5rem;background:var(--border);overflow:visible}
   .step{background:var(--card);padding:2.5rem 2rem;text-align:center;transition:background 0.2s}
   .step:hover{background:var(--card2)}
   .step-num{font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:700;color:var(--gold);line-height:1;opacity:0.4;margin-bottom:0.5rem}
@@ -92,7 +101,7 @@
   /* PRICING */
   .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;margin-top:3rem;background:var(--border)}
   .pricing-card{background:var(--card);padding:2.25rem 2rem;display:flex;flex-direction:column;transition:background 0.2s,transform 0.15s ease,box-shadow 0.25s}
-  .pricing-card:hover{background:var(--card2)}
+  .pricing-card:hover{background:var(--card2);box-shadow:0 12px 30px rgba(0,0,0,0.4),0 0 30px rgba(201,168,76,0.3),0 0 0 1px rgba(201,168,76,0.45)}
   .pricing-card.featured{background:var(--card2);border-top:2px solid var(--gold);transform-style:preserve-3d}
   .pricing-card-label{font-size:0.72rem;font-weight:500;color:var(--gold);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:0.75rem}
   .pricing-card-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;margin-bottom:0.5rem}
@@ -331,9 +340,9 @@
   /* ── MORE MOVEMENT ── */
 
   /* Cards breathe on hover */
-  .card:hover{transform:translateY(-6px) scale(1.01);box-shadow:0 16px 40px rgba(0,0,0,0.4),0 0 35px rgba(201,168,76,0.35),0 0 0 1px rgba(201,168,76,0.5)}
+  .card:hover{transform:translateY(-6px) scale(1.01);box-shadow:0 16px 40px rgba(0,0,0,0.4),0 0 35px rgba(201,168,76,0.35),0 0 0 1px rgba(201,168,76,0.5);z-index:2;position:relative}
   .review-card:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,0.4),0 0 30px rgba(201,168,76,0.3),0 0 0 1px rgba(201,168,76,0.45)}
-  .step:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,0.3),0 0 30px rgba(201,168,76,0.3),0 0 0 1px rgba(201,168,76,0.45)}
+  .step:hover{transform:translateY(-5px);box-shadow:0 12px 30px rgba(0,0,0,0.3),0 0 30px rgba(201,168,76,0.3),0 0 0 1px rgba(201,168,76,0.45);z-index:2;position:relative}
 
   /* Step numbers pulse on hover */
   .step:hover .step-num{animation:stepPop 0.4s cubic-bezier(0.22,1,0.36,1)}
@@ -426,7 +435,7 @@
   /* ── PROJEKT ── */
   .projekt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
   .projekt-card{background:var(--card);border:1px solid var(--border);border-radius:3px;overflow:hidden;transition:transform 0.25s cubic-bezier(0.22,1,0.36,1),box-shadow 0.25s}
-  .projekt-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,0.5),0 0 0 1px rgba(201,168,76,0.15)}
+  .projekt-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,0.5),0 0 30px rgba(201,168,76,0.3),0 0 0 1px rgba(201,168,76,0.45)}
   .projekt-img{width:100%;aspect-ratio:16/10;overflow:hidden;display:block}
   .projekt-img svg{width:100%;height:100%;display:block;transition:transform 0.5s ease}
   .projekt-card:hover .projekt-img svg{transform:scale(1.03)}

@@ -207,8 +207,10 @@
   /* MOBILE */
   @media(max-width:768px){
     /* Nav */
-    .nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(--bg);flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;z-index:300}
+    .nav-links{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:#0d1b2a;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;z-index:300}
     .nav-links.open{display:flex}
+    .nav-links a:not(.nav-cta){color:#ffffff !important;font-size:1.2rem !important}
+    .nav-links a:not(.nav-cta):hover{color:var(--gold) !important}
     .nav-links .nav-cta{padding:0.85rem 2.5rem;font-size:1rem}
     .hamburger{display:flex;z-index:400;position:relative}
     nav{padding:0.85rem 1.25rem}
@@ -566,14 +568,17 @@ nav .nav-cta:hover { background: #3b82f6 !important; }
   <div style="position:relative;z-index:2">
   <h1 id="hero-title">Din hemsida borde vara<br>din <span class="gold" id="hero-gold">bästa säljare</span><span class="typewriter-cursor" id="tw-cursor" style="display:none"></span></h1>
 
-  <p class="hero-sub reveal">Vi bygger moderna, snabba och konverterande hemsidor för svenska företag — levererade på under en vecka.</p>
+  <p class="hero-sub reveal">Vi bygger moderna hemsidor för svenska företag — snabba, snygga och skapade för att få fler kunder. Klart på mindre än en vecka.</p>
   <div class="btn-row reveal delay-1">
-    <span style="display:inline-block;padding:1px;border-radius:5px;background:linear-gradient(90deg,#ff6666,#ffaa44,#ffff66,#44dd66,#44aaff,#bb66ff,#ff6666);background-size:200% 100%;animation:rainbowBorder 3s linear infinite;font-size:0"><a href="#tjanster" class="btn-outline" style="display:inline-block;font-size:0.95rem;border:none!important;border-radius:4px;background:#1e3a5f!important;color:#ffffff!important;margin:0">Se vad vi erbjuder</a></span>
+    <a href="#tjanster" class="btn-outline" style="display:inline-block;font-size:0.95rem;border:2px solid transparent!important;border-radius:5px;background:transparent!important;color:#ffffff!important;outline:2px solid transparent;box-shadow:0 0 0 2px transparent;position:relative;background-clip:padding-box!important;animation:rainbowBorder2 3s linear infinite;background-size:200% 100%">Se vad vi erbjuder</a>
+    <style>
+      @keyframes rainbowBorder2{0%{box-shadow:0 0 0 1px #ff6666}14%{box-shadow:0 0 0 1px #ffaa44}28%{box-shadow:0 0 0 1px #ffff66}42%{box-shadow:0 0 0 1px #44dd66}57%{box-shadow:0 0 0 1px #44aaff}71%{box-shadow:0 0 0 1px #bb66ff}85%{box-shadow:0 0 0 1px #ff6666}100%{box-shadow:0 0 0 1px #ff6666}}
+    </style>
   </div>
   <style>@keyframes rainbowBorder{0%{background-position:0% 50%}100%{background-position:200% 50%}}</style>
 
   </div><!-- /z-index wrapper -->
-  <div class="reveal delay-2" style="display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-top:2.5rem;align-items:center">
+  <div style="display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-top:2.5rem;align-items:center;opacity:1;position:relative;z-index:2">
 
     <!-- Google badge -->
     <div style="display:flex;align-items:center;gap:0.5rem">
@@ -1468,8 +1473,8 @@ nav .nav-cta:hover { background: #3b82f6 !important; }
     document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50);
     parallaxHero();
   });
-  function toggleMob(){document.getElementById('nav-menu').classList.toggle('open')}
-  function closeMob(){document.getElementById('nav-menu').classList.remove('open')}
+  function toggleMob(){document.getElementById('nav-menu').classList.toggle('open');document.body.style.overflow=document.getElementById('nav-menu').classList.contains('open')?'hidden':''}
+  function closeMob(){document.getElementById('nav-menu').classList.remove('open');document.body.style.overflow=''}
   function openModal(id){document.getElementById('modal-'+id).classList.add('open');document.body.style.overflow='hidden'}
   function closeModal(id){document.getElementById('modal-'+id).classList.remove('open');document.body.style.overflow=''}
   document.querySelectorAll('.modal-overlay').forEach(m=>{

@@ -33,8 +33,8 @@
     --muted2:#777777;
     --green:#6ab87a;
   }
-  html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--text);font-family:Inter,sans-serif;line-height:1.7;font-size:16px;overflow-x:hidden}
+  html{scroll-behavior:smooth;overflow-x:hidden;max-width:100%}
+  body{background:var(--bg);color:var(--text);font-family:Inter,sans-serif;line-height:1.7;font-size:16px;overflow-x:hidden;max-width:100%}
 
   /* NAV */
   nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1rem 2.5rem;display:flex;justify-content:space-between;align-items:center;transition:background 0.4s,border 0.4s}
@@ -180,12 +180,12 @@
   .consent-row label a:hover{text-decoration:underline}
 
   /* FOOTER */
-  footer{background:#2a2a2a;border-top:1px solid var(--border);padding:3rem 2rem;text-align:center}
+  footer{background:#2a2a2a;border-top:1px solid var(--border);padding:3rem 2rem;text-align:center;overflow:hidden}
   /* ── FOOTER ── */
   .footer-logo{font-family:Inter,sans-serif;font-size:1.3rem;font-weight:700;color:#fff;letter-spacing:0.06em;margin-bottom:0.4rem}
   .footer-logo em{color:#fff;font-style:normal}
   .footer-tagline{color:rgba(255,255,255,0.5);font-size:0.8rem;margin-bottom:1.2rem;line-height:1.5}
-  .footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:2.5rem;max-width:1100px;margin:0 auto;padding:3rem 2rem 2rem;text-align:left}
+  .footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:2.5rem;max-width:1100px;margin:0 auto;padding:3rem 2rem 2rem;text-align:left;overflow:hidden;width:100%;box-sizing:border-box}
   .footer-col h4{color:#fff;font-size:0.78rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1rem}
   .footer-col ul{list-style:none;padding:0;margin:0}
   .footer-col ul li{margin-bottom:0.6rem}
@@ -220,7 +220,7 @@
   @media(max-width:768px){
     /* Nav */
     nav{padding:0.85rem 1.25rem;background:#0d1b2a !important;backdrop-filter:none !important;border-bottom:none !important}
-    nav.scrolled{background:#0d1b2a !important}
+    nav.scrolled{background:#0d1b2a !important;border-bottom:none !important}
     .nav-links{position:fixed;top:0;right:0;bottom:0;width:72%;max-width:280px;background:#0d1b2a;z-index:460;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;transform:translateX(100%);transition:transform 0.3s ease;padding-top:0}
     .nav-links.open{transform:translateX(0)}
     .nav-links a:not(.nav-cta){color:#ffffff !important;font-size:1.2rem !important;letter-spacing:0.05em;pointer-events:all}
@@ -294,7 +294,9 @@
     .pr-right{flex-direction:row;align-items:center;justify-content:space-between}
 
     /* Footer */
-    .footer-grid{grid-template-columns:1fr 1fr;gap:2rem;padding:2.5rem 1.25rem 1.5rem}
+    .footer-grid{grid-template-columns:1fr;gap:1.5rem;padding:2rem 1.25rem 1.5rem}
+    .footer-contact-item{font-size:0.8rem;word-break:break-all;flex-wrap:wrap}
+    .footer-contact-item a{word-break:break-all}
     .footer-bottom{flex-direction:column;align-items:flex-start;gap:0.75rem;padding:1rem 1.25rem}
 
     /* FAQ */
@@ -519,6 +521,16 @@
 .gold, #hero-gold { color: #1e3a5f !important; -webkit-text-fill-color: #1e3a5f !important; background: none !important; animation: none !important; }
 .logo em { color: #1e3a5f !important; -webkit-text-fill-color: #1e3a5f !important; background: none !important; animation: none !important; }
 .stars { color: #f5c518 !important; }
+/* Mobile: kill horizontal overflow everywhere + fix hero gap */
+@media(max-width:768px){
+  body { -webkit-overflow-scrolling: touch; }
+  .hero { margin-top: 0; padding-top: 5.5rem; }
+  section, footer, .footer-grid, .footer-bottom,
+  .contact-wrap, .contact-form, .about-box {
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+}
 </style>
 <style>
 .hero { background: #1e3a5f !important; }
@@ -579,33 +591,26 @@ nav .nav-cta:hover { background: #3b82f6 !important; }
 <!-- HERO -->
 <div class="hero" id="hero" style="position:relative;overflow:hidden;background:#000">
   <!-- Background video -->
-  <video id="hero-a" autoplay muted playsinline webkit-playsinline x5-playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none;opacity:1;transition:opacity 1.5s ease" disablepictureinpicture><source src="hero.mp4" type="video/mp4"></video>
-  <video id="hero-b" muted playsinline webkit-playsinline x5-playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none;opacity:0;transition:opacity 1.5s ease" disablepictureinpicture><source src="hero.mp4" type="video/mp4"></video>
+  <video id="hero-a" autoplay muted loop playsinline webkit-playsinline x5-playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none;opacity:1;transition:opacity 1.5s ease" disablepictureinpicture><source src="hero.mp4" type="video/mp4"></video>
+  <video id="hero-b" muted loop playsinline webkit-playsinline x5-playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none;opacity:0;transition:opacity 1.5s ease" disablepictureinpicture><source src="hero.mp4" type="video/mp4"></video>
   <script>
     (function(){
-      var a = document.getElementById('hero-a');
-      var b = document.getElementById('hero-b');
-      var active = a, next = b;
-      var crossing = false;
-
-      function startCross(){
-        if(crossing) return;
-        crossing = true;
-        next.currentTime = 0;
-        next.play();
-        active.style.opacity = '0';
-        next.style.opacity = '1';
-        var tmp = active; active = next; next = tmp;
-        setTimeout(function(){
-          crossing = false;
-        }, 4000);
+      var vid = document.getElementById('hero-a');
+      function tryPlay(v) {
+        var p = v.play();
+        if (p !== undefined) {
+          p.catch(function() {
+            document.addEventListener('touchstart', function handler() {
+              v.play();
+              document.removeEventListener('touchstart', handler);
+            }, { once: true });
+          });
+        }
       }
-
-      a.addEventListener('timeupdate', function(){
-        if(active === a && a.duration && a.currentTime > a.duration - 2) startCross();
-      });
-      b.addEventListener('timeupdate', function(){
-        if(active === b && b.duration && b.currentTime > b.duration - 2) startCross();
+      tryPlay(vid);
+      // Re-play if iOS pauses it (e.g. going to background)
+      vid.addEventListener('pause', function() {
+        if (!vid.ended) setTimeout(function(){ tryPlay(vid); }, 200);
       });
     })();
   </script>
@@ -1643,4 +1648,3 @@ nav .nav-cta:hover { background: #3b82f6 !important; }
 </script>
 </body>
 </html>
-

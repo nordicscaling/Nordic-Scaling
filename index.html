@@ -599,34 +599,9 @@ nav .nav-cta:hover { background: #3b82f6 !important; }
 <!-- HERO -->
 <div class="hero" id="hero" style="position:relative;overflow:hidden;background:#000">
   <!-- Background video -->
-  <video id="hero-a" autoplay muted loop playsinline webkit-playsinline x5-playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none;opacity:1;transition:opacity 1.5s ease" disablepictureinpicture><source src="hero.mp4" type="video/mp4"></video>
-  <video id="hero-b" muted loop playsinline webkit-playsinline x5-playsinline style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none;opacity:0;transition:opacity 1.5s ease" disablepictureinpicture><source src="hero.mp4" type="video/mp4"></video>
-  <script>
-    (function(){
-      var vid = document.getElementById('hero-a');
-      vid.muted = true;
-      vid.setAttribute('muted', '');
-      vid.setAttribute('playsinline', '');
-
-      function tryPlay() {
-        vid.muted = true;
-        var p = vid.play();
-        if (p !== undefined) {
-          p.catch(function() {});
-        }
-      }
-
-      // Try immediately, and also on canplay (needed on iOS)
-      tryPlay();
-      vid.addEventListener('canplay', tryPlay, { once: true });
-      vid.addEventListener('loadedmetadata', tryPlay, { once: true });
-
-      // If iOS pauses it (e.g. switching tabs)
-      vid.addEventListener('pause', function() {
-        if (!vid.ended) setTimeout(tryPlay, 100);
-      });
-    })();
-  </script>
+  <video id="hero-a" autoplay muted loop playsinline webkit-playsinline preload="auto" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none;" disablepictureinpicture>
+    <source src="hero.mp4" type="video/mp4">
+  </video>
   <!-- Light overlay so text is readable -->
   <div style="position:absolute;inset:0;background:rgba(10,20,35,0.45);z-index:1;pointer-events:none"></div>
   <div class="particles" id="particles" style="z-index:2;position:relative"></div>

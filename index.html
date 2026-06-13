@@ -917,41 +917,88 @@ nav .nav-cta:hover { background: #3b82f6 !important; }
   <h2 class="reveal delay-1">Enkelt och transparent</h2>
   <p class="section-desc reveal delay-2">Vi har inga dolda avgifter — exakt pris sätts alltid tillsammans med dig.</p>
 
+  <style>
+    .price-row{display:grid;grid-template-columns:1fr 220px 220px;gap:1rem;align-items:center}
+    .price-header{padding:0 0 0.75rem;border-bottom:2px solid var(--border2);margin-top:3rem}
+    .price-header .col-label{text-align:right;font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)}
+    .price-block{padding:2rem 0;border-bottom:1px solid var(--border)}
+    .price-cell{text-align:right}
+    @media(max-width:640px){
+      .price-row{grid-template-columns:1fr!important}
+      .price-header{display:none}
+      .price-block{padding:1.75rem 0}
+      .price-block .price-row{gap:0}
+      .price-cell{
+        text-align:left;
+        display:flex;
+        flex-direction:column;
+        margin-top:0.9rem;
+        padding-top:0.9rem;
+        border-top:1px dashed var(--border);
+        gap:0.15rem;
+      }
+      .price-cell::before{
+        font-size:0.7rem;
+        font-weight:600;
+        letter-spacing:0.08em;
+        text-transform:uppercase;
+        color:var(--muted2);
+      }
+      .price-cell.engång::before{content:"Engångsbetalning"}
+      .price-cell.manad::before{content:"Per månad"}
+    }
+  </style>
+
   <div class="pricing-list">
 
-    <div class="pricing-item">
-      <div>
-        <div class="pi-name">En-sidas hemsida</div>
-        <div class="pi-desc">En komplett sida — design, texter, formulär. Klar på en vecka.</div>
-      </div>
-      <div class="pi-price">5 000 <small>kr inkl. moms</small></div>
+    <div class="price-row price-header">
+      <div></div>
+      <div class="col-label">Engångsbetalning</div>
+      <div class="col-label">Månadsbetalning</div>
     </div>
 
-    <div class="pricing-item featured">
-      <div>
-        <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;margin-bottom:0.35rem">
-          <div class="pi-name" style="margin-bottom:0;color:#60a5fa;text-shadow:0 0 20px rgba(96,165,250,0.6),0 0 40px rgba(96,165,250,0.3)">Komplett hemsida</div>
-          <span style="background:none;color:#1e3a5f;font-size:0.85rem;font-weight:600;padding:0;letter-spacing:0.05em;white-space:nowrap">Mest populär</span>
+    <!-- En-sidas hemsida -->
+    <div class="price-block">
+      <div class="price-row">
+        <div>
+          <div class="pi-name">En-sidas hemsida</div>
+          <div class="pi-desc">En komplett sida — design, texter, formulär. Klar på en vecka.</div>
         </div>
-        <div class="pi-desc">Upp till 5 sidor med allt — design, texter, formulär, Google-optimering. Klar på en vecka.</div>
-      </div>
-      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:1rem;flex-shrink:0">
-        <div class="pi-price">8 000 <small>kr inkl. moms</small></div>
-        <a href="#kontakt" class="btn-gold" style="text-decoration:none;padding:0.7rem 1.75rem;font-size:0.88rem;white-space:nowrap">Kom igång →</a>
+        <div class="pi-price price-cell engång">5 000 <small>kr inkl. moms</small></div>
+        <div class="pi-price price-cell manad">499 <small>kr/mån inkl. moms</small></div>
       </div>
     </div>
 
-    <div class="pricing-item">
-      <div>
-        <div class="pi-name">Anpassad lösning</div>
-        <div class="pi-desc">E-handel, bokningssystem eller löpande underhåll?.</div>
+    <!-- Komplett hemsida -->
+    <div class="price-block">
+      <div class="price-row">
+        <div>
+          <div style="display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;margin-bottom:0.35rem">
+            <div class="pi-name" style="margin-bottom:0;color:#60a5fa;text-shadow:0 0 20px rgba(96,165,250,0.6),0 0 40px rgba(96,165,250,0.3)">Komplett hemsida</div>
+            <span style="background:none;color:#1e3a5f;font-size:0.85rem;font-weight:600;padding:0;letter-spacing:0.05em;white-space:nowrap">Mest populär</span>
+          </div>
+          <div class="pi-desc">Upp till 5 sidor med allt — design, texter, formulär, Google-optimering. Klar på en vecka.</div>
+        </div>
+        <div class="pi-price price-cell engång" style="color:var(--gold)">8 000 <small>kr inkl. moms</small></div>
+        <div class="pi-price price-cell manad" style="color:var(--gold)">799 <small>kr/mån inkl. moms</small></div>
       </div>
-      <div class="pi-price" style="color:var(--muted)">20 000 <small>kr inkl. moms</small></div>
+    </div>
+
+    <!-- Anpassad lösning -->
+    <div class="price-block">
+      <div class="price-row">
+        <div>
+          <div class="pi-name">Anpassad lösning</div>
+          <div class="pi-desc">E-handel, bokningssystem eller löpande underhåll.</div>
+        </div>
+        <div class="pi-price price-cell engång" style="color:var(--muted)">20 000 <small>kr inkl. moms</small></div>
+        <div class="pi-price price-cell manad" style="color:var(--muted)">1 699 <small>kr/mån inkl. moms</small></div>
+      </div>
     </div>
 
   </div>
 
-  <p style="text-align:center;margin-top:1.5rem;font-size:0.78rem;color:var(--muted)">Alla priser anges inklusive moms.</p>
+  <p style="margin-top:1.5rem;font-size:0.82rem;color:var(--muted2)">Alla månadsabonnemang inkluderar hosting, support och löpande underhåll. Minsta bindningstid 12 månader.</p>
   <div style="margin-top:1.5rem;text-align:center">
     <a href="#kontakt" class="btn-gold" style="text-decoration:none;padding:0.9rem 2.5rem">Kontakta oss</a>
   </div>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="/favicon.ico" sizes="48x48">
+
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -19,6 +19,9 @@
 <title>Nordic Scaling – Hemsidor som ger dig fler kunder</title>
 <meta name="description" content="Nordic Scaling bygger moderna, konverterande hemsidor för företag. Snabb leverans, professionell design, startpris från 5 000 kr exkl. moms.">
 <link rel="canonical" href="https://www.nordicscaling.se/">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<meta name="theme-color" content="#0d1b2e">
+<meta property="og:site_name" content="Nordic Scaling">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Nordic Scaling – Hemsidor som ger dig fler kunder">
 <meta property="og:description" content="Nordic Scaling bygger moderna, konverterande hemsidor för företag. Snabb leverans, professionell design, startpris från 5 000 kr exkl. moms.">
@@ -31,6 +34,9 @@
 <meta name="twitter:image" content="https://www.nordicscaling.se/images/hero.jpg">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"ProfessionalService","name":"Nordic Scaling","image":"https://www.nordicscaling.se/images/hero.jpg","url":"https://www.nordicscaling.se/","description":"Nordic Scaling bygger moderna, konverterande hemsidor för företag. Snabb leverans, professionell design, startpris från 5 000 kr exkl. moms.","address":{"@type":"PostalAddress","streetAddress":"Västra Lindviksvägen 26","postalCode":"236 32","addressLocality":"Höllviken","addressCountry":"SE"},"email":"contact@nordicscaling.com","founder":{"@type":"Person","name":"Ville Löfgren"},"priceRange":"Från 5 000 kr exkl. moms"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"Nordic Scaling","url":"https://www.nordicscaling.se/"}
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,7 +61,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;overflow-x:clip}
-body{font-family:var(--font);color:var(--text);background:var(--white);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:clip}
+body{font-family:var(--font);color:var(--text);background:#070e1a;line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased;overflow-x:clip}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1140px;margin:0 auto;padding:0 2rem}
@@ -63,7 +69,9 @@ h1,h2,h3{font-weight:800;letter-spacing:-0.03em;line-height:1.08}
 .sec{padding:7.5rem 0}
 .label{display:inline-flex;align-items:center;gap:0.6rem;font-size:0.74rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--brand);margin-bottom:1.1rem}
 .label::before{content:'';width:8px;height:8px;border-radius:2px;background:var(--sky);transform:rotate(45deg)}
-.dark{background:var(--navy);color:#fff}
+.dark{background:transparent;color:#fff}
+section:not(.dark):not(.about){background:var(--white)}
+#stars{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;display:block}
 .dark .label{color:var(--sky)}
 h2{font-size:clamp(2.1rem,4.4vw,3.3rem);max-width:780px}
 .desc{color:var(--muted);font-size:1.08rem;max-width:560px;margin-top:1.1rem}
@@ -110,7 +118,17 @@ nav .wrap{height:74px;display:flex;align-items:center;justify-content:space-betw
 
 /* LÖSNING – ord för ord */
 .reveal-wrap{position:relative;height:190vh}
-.reveal-sticky{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center}
+.reveal-sticky{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.reveal-sticky .wrap{position:relative;z-index:1}
+.aurora{position:absolute;left:-10%;right:-10%;top:-12%;height:75%;z-index:0;pointer-events:none;mix-blend-mode:screen;filter:blur(38px) saturate(1.2);opacity:calc(0.2 + var(--a,0) * 0.8);transform:translateY(calc(var(--a,0) * -6vh))}
+.aurora i{position:absolute;display:block;border-radius:50%;transform-origin:center}
+.aurora i:nth-child(1){left:5%;top:18%;width:70%;height:26%;background:linear-gradient(90deg,transparent,rgba(45,212,191,.55) 30%,rgba(96,165,250,.6) 65%,transparent);animation:aur1 16s ease-in-out infinite alternate}
+.aurora i:nth-child(2){left:30%;top:6%;width:65%;height:20%;background:linear-gradient(90deg,transparent,rgba(96,165,250,.5) 35%,rgba(129,140,248,.45) 70%,transparent);animation:aur2 19s ease-in-out infinite alternate}
+.aurora i:nth-child(3){left:-5%;top:34%;width:55%;height:16%;background:linear-gradient(90deg,transparent,rgba(52,211,153,.35) 40%,rgba(45,212,191,.4) 70%,transparent);animation:aur3 13s ease-in-out infinite alternate}
+.aurora i:nth-child(4){left:45%;top:26%;width:45%;height:30%;background:radial-gradient(ellipse,rgba(96,165,250,.28),transparent 70%);animation:aur2 22s ease-in-out -6s infinite alternate}
+@keyframes aur1{0%{transform:rotate(-14deg) skewX(-18deg) translateX(-4%) scaleY(.8)}50%{transform:rotate(-8deg) skewX(10deg) translateX(3%) scaleY(1.25)}100%{transform:rotate(-16deg) skewX(-6deg) translateX(6%) scaleY(.9)}}
+@keyframes aur2{0%{transform:rotate(-6deg) skewX(14deg) translateX(4%)}50%{transform:rotate(-12deg) skewX(-12deg) translateX(-5%) scaleY(1.3)}100%{transform:rotate(-4deg) skewX(8deg) translateX(-2%)}}
+@keyframes aur3{0%{transform:rotate(-20deg) skewX(10deg) translateX(0)}100%{transform:rotate(-10deg) skewX(-14deg) translateX(10%) scaleY(1.4)}}
 .masthead{font-size:0.95rem;color:var(--dim);border-bottom:1px solid var(--line-d);padding-bottom:0.9rem;margin-bottom:2.5rem;max-width:1080px}
 .words{font-size:clamp(2.6rem,7vw,6rem);font-weight:800;letter-spacing:-0.04em;line-height:1.02;max-width:1000px}
 .words span{color:rgba(255,255,255,0.14);transition:color .35s}
@@ -126,6 +144,120 @@ nav .wrap{height:74px;display:flex;align-items:center;justify-content:space-betw
 .incl h3{font-size:1.15rem;letter-spacing:-0.01em;font-weight:700}
 .incl p{color:var(--muted);margin-top:0.35rem;max-width:440px}
 .incl-extra{margin-top:2.2rem;font-weight:600;color:var(--brand)}
+/* Små loopar i "Det här ingår" */
+.inc{display:grid;grid-template-columns:132px 1fr;gap:1.4rem;align-items:center}
+.ani{position:relative;width:132px;height:92px;border-radius:14px;background:radial-gradient(circle at 30% 0%,#1d3557,#0b1626 70%);border:1px solid rgba(96,165,250,.18);overflow:hidden;box-shadow:0 14px 30px -18px rgba(13,27,46,.7)}
+.ani *{box-sizing:border-box}
+.ani b,.ani i{display:block;position:absolute}
+/* 1 design */
+.a-design .pg{left:12px;top:12px;width:78px;height:68px;border-radius:7px;background:#f1f5f9}
+.a-design .hd{left:0;top:0;right:0;height:20px;border-radius:7px 7px 0 0}
+.a-design .ln{left:8px;top:28px;width:52px;height:5px;border-radius:3px;background:#cbd5e1}
+.a-design .ln.s{top:38px;width:36px}
+.a-design .bt{left:8px;top:50px;width:30px;height:9px;border-radius:5px}
+.a-design .acc{animation:accent 10s steps(1) infinite}
+.a-design .sw i{left:104px;width:12px;height:12px;border-radius:50%}
+.a-design .sw i:nth-child(1){top:18px}.a-design .sw i:nth-child(2){top:40px}.a-design .sw i:nth-child(3){top:62px}
+.a-design .ring{position:absolute;left:100px;top:14px;width:20px;height:20px;border-radius:50%;border:2px solid #fff;animation:ring 10s cubic-bezier(.6,0,.3,1) infinite}
+@keyframes accent{0%{background:#60a5fa}33.3%{background:#34d399}66.6%{background:#f59e0b}}
+@keyframes ring{0%,28%{transform:translateY(0)}33.3%,61%{transform:translateY(22px)}66.6%,94%{transform:translateY(44px)}100%{transform:translateY(0)}}
+/* 2 mobil */
+.a-mobile .dev{position:absolute;left:50%;top:50%;border:2px solid #cbd5e1;background:#f1f5f9;padding:5px;display:flex;flex-direction:column;gap:4px;overflow:hidden;animation:dev 10s cubic-bezier(.65,0,.35,1) infinite}
+.a-mobile .dev b,.a-mobile .dev i{position:static}
+.a-mobile .m-hd{flex-shrink:0;height:4px;width:40%;border-radius:2px;background:#60a5fa}
+.a-mobile .m-hero{flex-shrink:0;height:16px;border-radius:3px;background:linear-gradient(135deg,#1e3a5f,#0d1b2e)}
+.a-mobile .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(18px,1fr));gap:4px}
+.a-mobile .grid i{height:10px;border-radius:2px;background:#cbd5e1}
+.a-mobile .base{left:50%;top:70px;width:104px;height:4px;margin-left:-52px;border-radius:0 0 4px 4px;background:#cbd5e1;animation:base 10s cubic-bezier(.65,0,.35,1) infinite}
+@keyframes dev{0%,35%,92%,100%{width:92px;height:56px;margin:-34px 0 0 -46px;border-radius:5px}45%,82%{width:38px;height:70px;margin:-35px 0 0 -19px;border-radius:9px}}
+@keyframes base{0%,32%,95%,100%{opacity:1;transform:scaleX(1)}42%,85%{opacity:0;transform:scaleX(.3)}}
+/* 3 google */
+.a-google .sb{position:absolute;left:10px;right:10px;top:10px;height:16px;border-radius:999px;background:#fff;display:flex;align-items:center;gap:4px;padding:0 6px;overflow:hidden}
+.a-google .typed{font:600 8px/1 ui-monospace,Menlo,monospace;color:#0f172a;white-space:nowrap;overflow:hidden;width:0;animation:type14 10s steps(14) infinite}
+.a-google .res{position:absolute;left:10px;right:10px;height:11px;border-radius:3px;background:rgba(255,255,255,.12)}
+.a-google .res i{left:4px;top:3px;width:5px;height:5px;border-radius:50%;background:#64748b}
+.a-google .res b{left:13px;top:3px;width:55%;height:5px;border-radius:3px;background:#64748b}
+.a-google .me{background:rgba(96,165,250,.22);box-shadow:inset 0 0 0 1px rgba(96,165,250,.6)}
+.a-google .me b{background:#60a5fa}.a-google .me i{background:#93c5fd}
+.a-google .res{opacity:0;animation-duration:10s;animation-iteration-count:infinite;animation-timing-function:cubic-bezier(.6,0,.3,1)}
+.a-google .r1{animation-name:r1}.a-google .r2{animation-name:r2}.a-google .me{animation-name:me}
+@keyframes type14{0%,4%{width:0}30%,92%{width:14ch}100%{width:0}}
+@keyframes r1{0%,32%{opacity:0;top:34px}36%,50%{opacity:1;top:34px}62%,90%{opacity:1;top:50px}96%,100%{opacity:0;top:50px}}
+@keyframes r2{0%,32%{opacity:0;top:50px}38%,50%{opacity:1;top:50px}62%,90%{opacity:1;top:66px}96%,100%{opacity:0;top:66px}}
+@keyframes me{0%,32%{opacity:0;top:66px}40%,50%{opacity:1;top:66px}62%,90%{opacity:1;top:34px}96%,100%{opacity:0;top:34px}}
+/* 4 formulär */
+.a-form .fm{position:absolute;left:10px;top:12px;width:62px;height:68px;border-radius:7px;background:#f1f5f9;padding:8px}
+.a-form .f{left:8px;width:46px;height:9px;border-radius:3px;background:#e2e8f0;overflow:hidden}
+.a-form .f::after{content:'';position:absolute;left:3px;top:3px;height:3px;border-radius:2px;background:#94a3b8;width:0}
+.a-form .f1{top:9px}.a-form .f2{top:23px}
+.a-form .f1::after{animation:fill1 10s infinite}.a-form .f2::after{animation:fill2 10s infinite}
+.a-form .send{left:8px;top:44px;width:30px;height:11px;border-radius:6px;background:#1e3a5f;animation:press 10s infinite}
+.a-form .env{position:absolute;left:24px;top:50px;opacity:0;animation:fly 10s cubic-bezier(.5,0,.3,1) infinite}
+.a-form .inbox{position:absolute;right:14px;top:38px;line-height:0}.a-form .inbox svg{display:block}
+.a-form .dot{position:absolute;right:-3px;top:-3px;width:8px;height:8px;border-radius:50%;background:#60a5fa;transform:scale(0);animation:dot 10s infinite}
+@keyframes fill1{0%,4%{width:0}16%,94%{width:30px}100%{width:0}}
+@keyframes fill2{0%,18%{width:0}30%,94%{width:22px}100%{width:0}}
+@keyframes press{0%,36%,40%,100%{transform:scale(1);background:#1e3a5f}38%{transform:scale(.88);background:#60a5fa}}
+@keyframes fly{0%,39%{opacity:0;transform:translate(0,0) scale(.6)}43%{opacity:1;transform:translate(8px,-14px) scale(1)}58%{opacity:1;transform:translate(78px,-14px) scale(.9) rotate(8deg)}62%,100%{opacity:0;transform:translate(84px,-12px) scale(.4)}}
+@keyframes dot{0%,60%{transform:scale(0)}65%{transform:scale(1.4)}70%,92%{transform:scale(1)}97%,100%{transform:scale(0)}}
+/* 5 texter */
+.a-text .doc{position:absolute;left:16px;right:16px;top:12px;bottom:12px;border-radius:7px;background:#f1f5f9}
+.a-text .t{left:9px;height:5px;border-radius:3px;background:#475569;width:0}
+.a-text .t1{top:10px;background:#0f172a;height:7px;animation:w1 10s linear infinite}
+.a-text .t2{top:24px;animation:w2 10s linear infinite}
+.a-text .t3{top:35px;animation:w3 10s linear infinite}
+.a-text .t4{top:46px;animation:w4 10s linear infinite}
+.a-text .caret{position:absolute;width:2px;height:9px;background:#60a5fa;animation:caret 10s linear infinite,blink .8s steps(1) infinite}
+@keyframes w1{0%,3%{width:0}15%,93%{width:58%}100%{width:0}}
+@keyframes w2{0%,17%{width:0}32%,93%{width:78%}100%{width:0}}
+@keyframes w3{0%,34%{width:0}49%,93%{width:70%}100%{width:0}}
+@keyframes w4{0%,51%{width:0}64%,93%{width:44%}100%{width:0}}
+@keyframes caret{0%,3%{left:9px;top:9px}15%{left:calc(58% + 11px);top:9px}17%{left:9px;top:22px}32%{left:calc(78% + 11px);top:22px}34%{left:9px;top:33px}49%{left:calc(70% + 11px);top:33px}51%{left:9px;top:44px}64%,93%{left:calc(44% + 11px);top:44px}100%{left:9px;top:9px}}
+@keyframes blink{50%{opacity:0}}
+/* 6 domän */
+.a-domain .globe{position:absolute;right:-6px;bottom:-8px;animation:spin 20s linear infinite}
+.a-domain .url{position:absolute;left:10px;right:10px;top:18px;height:18px;border-radius:6px;background:#fff;display:flex;align-items:center;gap:5px;padding:0 7px}
+.a-domain .lock{color:#94a3b8;flex-shrink:0;animation:lock 10s infinite}
+.a-domain .typed{font:600 8px/1 ui-monospace,Menlo,monospace;color:#0f172a;white-space:nowrap;overflow:hidden;width:0;animation:type14 10s steps(14) infinite}
+.a-domain .live{position:absolute;left:10px;top:48px;display:flex;align-items:center;gap:5px;font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#86efac;background:rgba(34,197,94,.14);border:1px solid rgba(34,197,94,.35);border-radius:999px;padding:3px 8px;opacity:0;animation:live 10s infinite}
+.a-domain .live span{width:6px;height:6px;border-radius:50%;background:#22c55e;animation:ping 1.6s infinite}
+@keyframes lock{0%,34%{color:#94a3b8}40%,94%{color:#22c55e}100%{color:#94a3b8}}
+@keyframes live{0%,40%{opacity:0;transform:translateY(6px)}46%,92%{opacity:1;transform:none}98%,100%{opacity:0}}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.svc-top{display:grid;grid-template-columns:1fr 1.05fr;gap:4rem;align-items:center}
+.demo{position:relative;padding:1.5rem 1.5rem 2.5rem}
+.demo-win{background:#fff;border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:0 40px 80px -40px rgba(13,27,46,0.45);animation:floaty 8s ease-in-out infinite}
+.demo-bar{display:flex;align-items:center;gap:6px;padding:0.6rem 0.8rem;border-bottom:1px solid var(--line);background:#f8fafc}
+.demo-bar i{width:9px;height:9px;border-radius:50%;background:#dbe1e8}
+.demo-bar em{font-style:normal;margin-left:0.6rem;font-size:0.7rem;color:var(--muted);background:#eef2f6;border-radius:6px;padding:0.15rem 0.7rem}
+.demo-page{position:relative;padding:14px;display:grid;gap:12px}
+.b{display:block;position:relative;border-radius:6px;background:#e7ebf0;height:10px;transform-origin:left center;animation:build 9s cubic-bezier(.2,.7,.2,1) var(--d,0s) infinite both}
+.b::after{content:'';position:absolute;inset:0;border-radius:inherit;background:var(--c);opacity:0;animation:paint 9s ease var(--d,0s) infinite both}
+.b>.b{z-index:1}
+.d-nav{display:flex;justify-content:space-between;align-items:center}
+.d-nav span{display:flex;gap:8px;align-items:center}
+.d-nav span .b{width:30px;height:8px}
+.d-nav span .b:last-child{height:16px;border-radius:999px}
+.d-hero{height:auto!important;padding:28px 20px;display:grid;gap:10px;border-radius:10px!important;overflow:hidden}
+.d-btn{width:86px;height:22px!important;border-radius:999px!important;margin-top:6px}
+.d-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.d-cards>.b{height:64px;border-radius:8px;padding:10px}
+.d-cards>.b>.b{width:60%;height:8px}
+.d-cursor{position:absolute;left:0;top:0;z-index:3;animation:cursor 9s ease-in-out infinite}
+.demo-note{position:absolute;right:-6px;bottom:6px;z-index:4;display:flex;align-items:center;gap:0.75rem;background:var(--navy);color:#fff;border:1px solid rgba(96,165,250,0.35);border-radius:14px;padding:0.75rem 1rem;box-shadow:0 20px 40px -15px rgba(13,27,46,0.6);animation:note 9s cubic-bezier(.2,.9,.3,1.3) infinite}
+.dn-ic{width:32px;height:32px;border-radius:9px;background:rgba(96,165,250,0.18);color:var(--sky);display:grid;place-items:center}
+.demo-note strong{display:block;font-size:0.88rem;line-height:1.2}
+.demo-note span{font-size:0.76rem;color:rgba(255,255,255,0.6)}
+.demo-note em{font-style:normal;font-size:0.72rem;color:var(--sky);align-self:flex-start;margin-left:0.5rem}
+.demo-chip{position:absolute;left:-10px;top:-6px;z-index:4;display:flex;align-items:center;gap:0.5rem;background:#fff;border:1px solid var(--line);border-radius:999px;padding:0.45rem 0.9rem;font-size:0.8rem;font-weight:700;box-shadow:0 12px 30px -12px rgba(13,27,46,0.35);animation:floaty 6s ease-in-out -2s infinite}
+.demo-chip span{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 0 rgba(34,197,94,0.5);animation:ping 2s infinite}
+@keyframes build{0%{transform:scaleX(0);opacity:0}5%{transform:scaleX(1);opacity:1}92%{opacity:1}98%,100%{opacity:0}}
+@keyframes paint{0%,30%{opacity:0}40%,92%{opacity:1}98%,100%{opacity:0}}
+@keyframes cursor{0%,42%{transform:translate(110%,240px);opacity:0}46%{opacity:1}56%{transform:translate(64px,120px)}59%{transform:translate(64px,120px) scale(.82)}62%,90%{transform:translate(64px,120px) scale(1);opacity:1}96%,100%{opacity:0;transform:translate(64px,120px)}}
+@keyframes note{0%,62%{opacity:0;transform:translateY(16px) scale(.92)}66%,90%{opacity:1;transform:none}96%,100%{opacity:0;transform:translateY(8px)}}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes ping{70%{box-shadow:0 0 0 8px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
 
 /* PORTFOLIO – glider i sidled */
 .pf{position:relative}
@@ -137,7 +269,8 @@ nav .wrap{height:74px;display:flex;align-items:center;justify-content:space-betw
 .pf-card{flex:0 0 min(520px,78vw);background:var(--navy-2);border:1px solid var(--line-d);border-radius:20px;overflow:hidden;transition:border-color .3s}
 .pf-card:hover{border-color:rgba(96,165,250,0.45)}
 .pf-shot{aspect-ratio:2/1;overflow:hidden;background:#f5f5f5}
-.pf-shot img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .8s ease}
+.pf-shot img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .8s ease;filter:brightness(calc(0.3 + var(--lit,1) * 0.7)) saturate(calc(0.3 + var(--lit,1) * 0.7))}
+.pf-card{--lit:1}
 .pf-card:hover .pf-shot img{transform:scale(1.04)}
 .pf-info{padding:1.5rem 1.7rem 1.8rem}
 .pf-tag{font-size:0.72rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:var(--sky)}
@@ -220,7 +353,7 @@ form .btn:hover{background:var(--navy)}
 .form-done p{color:var(--muted);margin-top:0.5rem}
 
 /* FOOTER */
-footer{background:#0a1524;color:rgba(255,255,255,0.55);font-size:0.88rem}
+footer{background:rgba(4,9,18,0.55);color:rgba(255,255,255,0.55);font-size:0.88rem}
 .foot{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:2.5rem;padding:4rem 0 3rem}
 .foot h4{color:#fff;font-size:0.78rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1rem}
 .foot ul{list-style:none;display:grid;gap:0.6rem}
@@ -272,7 +405,26 @@ footer{background:#0a1524;color:rgba(255,255,255,0.55);font-size:0.88rem}
 .rv-l{opacity:0;transform:translateX(-30px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
 .rv-l.in{opacity:1;transform:none}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+/* Filmkorn */
+.grain{position:fixed;inset:-50%;width:200%;height:200%;z-index:150;pointer-events:none;opacity:0.07;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain 1.2s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-4%,3%)}40%{transform:translate(3%,-5%)}60%{transform:translate(-6%,-2%)}80%{transform:translate(5%,4%)}100%{transform:translate(0,0)}}
+
+/* Intro: tonar in ur svart */
+.intro{position:fixed;inset:0;z-index:500;background:#05090f;pointer-events:none;animation:introOut 1.4s ease .25s forwards}
+@keyframes introOut{to{opacity:0;visibility:hidden}}
+.hero-img{animation:heroIn 2.6s cubic-bezier(.2,.7,.2,1) both}
+@keyframes heroIn{from{opacity:0;filter:blur(6px)}to{opacity:1;filter:none}}
+.hero h1,.hero p,.hero .btn,.badges{animation:riseIn 1.2s cubic-bezier(.2,.7,.2,1) both}
+.hero h1{animation-delay:.9s}.hero p{animation-delay:1.15s}.hero .btn{animation-delay:1.3s}.badges{animation-delay:1.5s}
+@keyframes riseIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
 @media (prefers-reduced-motion:reduce){
+  .grain,.intro{display:none}
+  .b,.b::after,.d-cursor,.demo-note,.demo-win,.demo-chip,.aurora i{animation:none}
+  .b::after,.demo-note{opacity:1}
+  .ani *,.ani *::after{animation:none!important}
+  .ani .typed{width:14ch}
+  .hero-img,.hero h1,.hero p,.hero .btn,.badges{animation:none}
   .rv,.rv-l{opacity:1;transform:none;transition:none}
   .words span{color:#fff}
   .scroll-cue::after{animation:none}
@@ -298,6 +450,10 @@ footer{background:#0a1524;color:rgba(255,255,255,0.55);font-size:0.88rem}
   .price-grid{grid-template-columns:1fr;gap:2.5rem}
   .price-intro{position:static}
   .incl{grid-template-columns:1fr}
+  .svc-top{grid-template-columns:1fr;gap:2.5rem}
+  .inc{gap:1rem}
+  .demo{padding:1.2rem 0.4rem 2.2rem}
+  .aurora{top:-6%;height:60%;filter:blur(28px) saturate(1.2)}
   .pl-line h3{font-size:1.2rem;white-space:normal}
   .pl-price{font-size:1.2rem}
   .pl-sub{flex-direction:column;gap:0.3rem}
@@ -309,6 +465,9 @@ footer{background:#0a1524;color:rgba(255,255,255,0.55);font-size:0.88rem}
 </style>
 </head>
 <body>
+<div class="intro" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+<canvas id="stars" aria-hidden="true"></canvas>
 
 <nav id="nav">
   <div class="wrap">
@@ -346,6 +505,7 @@ footer{background:#0a1524;color:rgba(255,255,255,0.55);font-size:0.88rem}
 <section class="dark" id="losning">
   <div class="reveal-wrap" id="reveal">
     <div class="reveal-sticky">
+      <div class="aurora" id="aurora" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
       <div class="wrap">
         <div class="masthead">Nordic Scaling — Min lösning</div>
         <h2 class="words" id="words">Din hemsida borde göra jobbet åt dig.</h2>
@@ -356,7 +516,7 @@ footer{background:#0a1524;color:rgba(255,255,255,0.55);font-size:0.88rem}
     <p class="solution-quote rv">"De flesta hemsidor ser likadana ut — genererade på en timme, glömda dagen efter."</p>
     <div class="rv d1">
       <p>Jag gör det annorlunda. Varje hemsida börjar med ett samtal om ditt företag — vad du gör, vem du vill nå, och vad du vill att besökarna ska göra.</p>
-      <p>Sen bygger jag något som faktiskt ser ut som dig. Inte en mall. Inte AI-genererat. En riktig hemsida, klar på en vecka.</p>
+      <p>Sen bygger jag något som faktiskt ser ut som dig. Inte en mall. En riktig hemsida, klar på en vecka.</p>
       <p>Snabb leverans, fast pris, inga överraskningar.</p>
     </div>
   </div>
@@ -365,16 +525,45 @@ footer{background:#0a1524;color:rgba(255,255,255,0.55);font-size:0.88rem}
 <!-- TJÄNSTER -->
 <section class="sec" id="tjanster">
   <div class="wrap">
-    <span class="label rv">Tjänster</span>
-    <h2 class="rv d1">Det här ingår</h2>
-    <p class="desc rv d2">Du behöver inte kunna något om hemsidor. Du berättar om ditt företag, jag sköter resten.</p>
+    <div class="svc-top">
+      <div>
+        <span class="label rv">Tjänster</span>
+        <h2 class="rv d1">Det här ingår</h2>
+        <p class="desc rv d2">Du behöver inte kunna något om hemsidor. Du berättar om ditt företag, jag sköter resten.</p>
+      </div>
+      <div class="demo rv d2" aria-hidden="true">
+        <div class="demo-chip"><span></span>Klar på en vecka</div>
+        <div class="demo-win">
+          <div class="demo-bar"><i></i><i></i><i></i><em>dittforetag.se</em></div>
+          <div class="demo-page">
+            <div class="d-nav"><b class="b" style="--c:#1e3a5f;width:22%;--d:.0s"></b><span><b class="b" style="--c:#cbd5e1;--d:.15s"></b><b class="b" style="--c:#cbd5e1;--d:.25s"></b><b class="b" style="--c:#60a5fa;--d:.35s;width:46px"></b></span></div>
+            <div class="d-hero b" style="--c:linear-gradient(135deg,#1e3a5f,#0d1b2e 70%);--d:.45s">
+              <b class="b" style="--c:#fff;width:62%;height:14px;--d:.9s"></b>
+              <b class="b" style="--c:rgba(255,255,255,.55);width:44%;height:8px;--d:1.05s"></b>
+              <b class="b d-btn" style="--c:#60a5fa;--d:1.2s"></b>
+            </div>
+            <div class="d-cards">
+              <div class="b" style="--c:#f1f5f9;--d:1.4s"><b class="b" style="--c:#1e3a5f;--d:1.6s"></b></div>
+              <div class="b" style="--c:#f1f5f9;--d:1.55s"><b class="b" style="--c:#1e3a5f;--d:1.75s"></b></div>
+              <div class="b" style="--c:#f1f5f9;--d:1.7s"><b class="b" style="--c:#1e3a5f;--d:1.9s"></b></div>
+            </div>
+            <svg class="d-cursor" width="22" height="22" viewBox="0 0 24 24"><path d="M4 2l15 9-7 1.5L9 20z" fill="#0f172a" stroke="#fff" stroke-width="1.5" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+        <div class="demo-note">
+          <div class="dn-ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4h16v16H4z"/><path d="M4 7l8 6 8-6"/></svg></div>
+          <div><strong>Ny förfrågan</strong><span>via kontaktformuläret</span></div>
+          <em>nu</em>
+        </div>
+      </div>
+    </div>
     <div class="incl rv">
-      <div><h3>Design efter ditt företag</h3><p>Jag börjar från noll. Färger, bilder och upplägg väljs efter vad du säljer och vem du säljer till.</p></div>
-      <div><h3>Byggd för mobilen</h3><p>De flesta hittar dig via telefonen, så sidan görs för den först och fungerar lika bra på datorn.</p></div>
-      <div><h3>Grunden för Google</h3><p>Rätt rubriker, snabb laddning och beskrivningar på varje sida, så att du kan hittas när någon söker.</p></div>
-      <div><h3>Kontaktformulär</h3><p>Förfrågningarna kommer direkt till din mejl.</p></div>
-      <div><h3>Texterna</h3><p>Har du inga texter skriver jag dem efter ett samtal med dig.</p></div>
-      <div><h3>Domän och publicering</h3><p>Jag kopplar din domän och ser till att sidan ligger uppe.</p></div>
+      <div class="inc"><div class="ani a-design" aria-hidden="true"><div class="pg"><b class="acc hd"></b><b class="ln"></b><b class="ln s"></b><b class="acc bt"></b></div><div class="sw"><i style="background:#60a5fa"></i><i style="background:#34d399"></i><i style="background:#f59e0b"></i><span class="ring"></span></div></div><div><h3>Design efter ditt företag</h3><p>Jag börjar från noll. Färger, bilder och upplägg väljs efter vad du säljer och vem du säljer till.</p></div></div>
+      <div class="inc"><div class="ani a-mobile" aria-hidden="true"><div class="dev"><b class="m-hd"></b><b class="m-hero"></b><div class="grid"><i></i><i></i><i></i></div></div><b class="base"></b></div><div><h3>Byggd för mobilen</h3><p>De flesta hittar dig via telefonen, så sidan görs för den först och fungerar lika bra på datorn.</p></div></div>
+      <div class="inc"><div class="ani a-google" aria-hidden="true"><div class="sb"><svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="3"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg><span class="typed">snickare malmö</span></div><div class="res r1"><i></i><b></b></div><div class="res r2"><i></i><b></b></div><div class="res me"><i></i><b></b></div></div><div><h3>Grunden för Google</h3><p>Rätt rubriker, snabb laddning och beskrivningar på varje sida, så att du kan hittas när någon söker.</p></div></div>
+      <div class="inc"><div class="ani a-form" aria-hidden="true"><div class="fm"><b class="f f1"></b><b class="f f2"></b><b class="send"></b></div><svg class="env" width="16" height="12" viewBox="0 0 16 12"><rect x=".75" y=".75" width="14.5" height="10.5" rx="2" fill="#fff" stroke="#60a5fa" stroke-width="1.5"/><path d="M1.5 1.8 8 6.6l6.5-4.8" fill="none" stroke="#60a5fa" stroke-width="1.5"/></svg><div class="inbox"><svg width="22" height="18" viewBox="0 0 24 20" fill="none" stroke="#cbd5e1" stroke-width="1.8" stroke-linejoin="round"><path d="M2 11l3-9h14l3 9v7H2z"/><path d="M2 11h6l1.5 3h5L16 11h6"/></svg><span class="dot"></span></div></div><div><h3>Kontaktformulär</h3><p>Förfrågningarna kommer direkt till din mejl.</p></div></div>
+      <div class="inc"><div class="ani a-text" aria-hidden="true"><div class="doc"><b class="t t1"></b><b class="t t2"></b><b class="t t3"></b><b class="t t4"></b><span class="caret"></span></div></div><div><h3>Texterna</h3><p>Har du inga texter skriver jag dem efter ett samtal med dig.</p></div></div>
+      <div class="inc"><div class="ani a-domain" aria-hidden="true"><div class="url"><svg class="lock" width="9" height="10" viewBox="0 0 24 26" fill="none" stroke="currentColor" stroke-width="3"><rect x="3" y="11" width="18" height="13" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span class="typed">dittforetag.se</span></div><div class="live"><span></span>Live</div><svg class="globe" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="rgba(96,165,250,.55)" stroke-width="1"><circle cx="12" cy="12" r="10"/><ellipse cx="12" cy="12" rx="4.5" ry="10"/><path d="M2 12h20M4 7h16M4 17h16"/></svg></div><div><h3>Domän och publicering</h3><p>Jag kopplar din domän och ser till att sidan ligger uppe.</p></div></div>
     </div>
     <p class="incl-extra rv">Behöver du bokning, flera språk eller något annat? Säg till, så löser vi det.</p>
   </div>
@@ -646,7 +835,55 @@ footer{background:#0a1524;color:rgba(255,255,255,0.55);font-size:0.88rem}
   var nav=document.getElementById('nav'),heroImg=document.getElementById('hero-img'),heroC=document.getElementById('hero-content'),
       reveal=document.getElementById('reveal'),
       photo=document.querySelector('#photo img'),contact=document.getElementById('kontakt'),wordmark=document.getElementById('wordmark');
+  // Stjärnhimmel med enstaka stjärnfall
+  (function(){
+    var c=document.getElementById('stars'),x=c.getContext('2d'),dpr=Math.min(2,devicePixelRatio||1),W,H,stars=[],shoot=null,next=performance.now()+3000;
+    function size(){
+      W=innerWidth;H=innerHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0);
+      var n=Math.round(W*H/5200);stars=[];
+      for(var i=0;i<n;i++)stars.push({x:Math.random()*W,y:Math.random()*H*3,r:Math.random()*1.3+0.2,z:Math.random()*0.6+0.15,t:Math.random()*6.28,s:0.6+Math.random()*1.6,b:Math.random()<0.12});
+    }
+    function draw(now){
+      x.clearRect(0,0,W,H);
+      var sy=scrollY;
+      for(var i=0;i<stars.length;i++){
+        var s=stars[i],y=((s.y-sy*s.z*0.35)%(H*3)+H*3)%(H*3);
+        if(y>H)continue;
+        var a=reduce?0.7:0.35+0.65*Math.abs(Math.sin(s.t+now/1000*s.s*0.6));
+        x.globalAlpha=a*(0.45+s.z);
+        x.fillStyle=s.b?'#bcd6ff':'#ffffff';
+        x.beginPath();x.arc(s.x,y,s.r,0,6.283);x.fill();
+      }
+      if(!reduce){
+        if(!shoot&&now>next){shoot={x:Math.random()*W*0.7+W*0.2,y:Math.random()*H*0.4,l:0};next=now+5000+Math.random()*7000}
+        if(shoot){
+          shoot.l+=0.018;var p=shoot.l,len=140;
+          var hx=shoot.x-p*W*0.35,hy=shoot.y+p*W*0.17;
+          var g=x.createLinearGradient(hx,hy,hx+len,hy-len*0.48);
+          g.addColorStop(0,'rgba(255,255,255,'+(1-p)+')');g.addColorStop(1,'rgba(255,255,255,0)');
+          x.globalAlpha=1;x.strokeStyle=g;x.lineWidth=1.6;x.beginPath();x.moveTo(hx,hy);x.lineTo(hx+len,hy-len*0.48);x.stroke();
+          if(p>=1)shoot=null;
+        }
+      }
+      x.globalAlpha=1;
+      if(!reduce)requestAnimationFrame(draw);
+    }
+    size();addEventListener('resize',size);requestAnimationFrame(draw);
+    if(reduce)addEventListener('scroll',function(){requestAnimationFrame(draw)},{passive:true});
+  })();
+
+  var astro=document.getElementById('aurora');
+  var pfCards=document.querySelectorAll('.pf-card:not(.pf-next)');
+  function litCards(){
+    var cx=innerWidth/2;
+    pfCards.forEach(function(c){
+      var r=c.getBoundingClientRect(),d=Math.abs(r.left+r.width/2-cx)/(innerWidth*0.55);
+      c.style.setProperty('--lit',reduce?1:clamp(1.15-d).toFixed(3));
+    });
+  }
+  track.addEventListener('scroll',litCards,{passive:true});
   function tick(){
+    if(mobile())litCards();
     var y=scrollY,h=innerHeight;
     nav.classList.toggle('solid',y>40);
 
@@ -660,12 +897,15 @@ footer{background:#0a1524;color:rgba(255,255,255,0.55);font-size:0.88rem}
     var r=reveal.getBoundingClientRect(),rp=clamp(-r.top/(r.height-h*1.1));
     var lit=Math.round(rp*wspans.length);
     wspans.forEach(function(s,i){s.classList.toggle('on',reduce||i<lit)});
+    // norrskenet tänds när man scrollar in
+    if(astro)astro.style.setProperty('--a',reduce?0.8:clamp((h-r.top)/(h*1.4)).toFixed(3));
 
 
     // portfolion glider i sidled
     if(!mobile()){
       var pr=pf.getBoundingClientRect(),dist=track.scrollWidth-innerWidth,pp=clamp(-pr.top/Math.max(1,pr.height-h));
       track.style.transform='translateX('+(-dist*pp)+'px)';
+      litCards();
       prog.style.setProperty('--p',pp);
     }
 
